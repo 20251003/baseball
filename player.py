@@ -25,3 +25,6 @@ class Pitcher:
                 f"stamina: {self.stamina}\n"
                 f"defence: {self.defence}\n"
                 f"pitch_type: {self.pitch_type}")
+
+k =1234
+print(k)
