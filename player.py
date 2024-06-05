@@ -25,17 +25,5 @@ class Pitcher:
                 f"stamina: {self.stamina}\n"
                 f"defence: {self.defence}\n"
                 f"pitch_type: {self.pitch_type}")
-
-class pitch_type:
-    #직구
-    Fastball = 0
-    Fastball_Potential = 0
-    #체인지업
-    Changeup = 0
-    Changeup_Potential = 0
-    #커브
-    Curveball = 0
-    Curveball_Potential = 0
-    #슬라이더
-    Slider = 0
-    Slider_Potential = 0
+    
+#123123
