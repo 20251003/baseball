@@ -32,3 +32,4 @@ class Game:
             pitch_result = random.choices(numbers,weights=weights,k=1)[0]
             print(f"speed: {pitch_result} km, pitch type: {pitch_type}, stamina: {self.pitcher.stamina}")
             self.pitcher.stamina = self.pitcher.stamina - 10
+
