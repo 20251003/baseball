@@ -26,16 +26,30 @@ class Pitcher:
                 f"defence: {self.defence}\n"
                 f"pitch_type: {self.pitch_type}")
 
-class pitch_type:
+class PitchType:
     #직구
-    Fastball = 0
-    Fastball_Potential = 0
+    fastball = 0
+    fastball_potential = 0
     #체인지업
-    Changeup = 0
-    Changeup_Potential = 0
+    changeup = 0
+    changeup_potential = 0
     #커브
-    Curveball = 0
-    Curveball_Potential = 0
+    curveball = 0
+    curveball_potential = 0
     #슬라이더
-    Slider = 0
-    Slider_Potential = 0
+    slider = 0
+    slider_potential = 0
+
+class Player:
+    #키(정수형)
+    height = 0
+    #몸무게(실수형)
+    weights = 0
+    #타격 손
+    bats = 'left'
+    #투구 손
+    throws = 'left'
+    #체력
+    stamina = 100
+    #정신력(0~100)
+    mental = 50
