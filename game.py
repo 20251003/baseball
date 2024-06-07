@@ -1,14 +1,14 @@
 import random
-from player import Pitcher
+from player import Player
 class Game:
-    def __init__(self,pitcher):
-        self.pitcher = pitcher
+    def __init__(self,Pitcher,Hiter):
+        self.pitcher = Pitcher
+        self.hiter = Hiter
     
     def pitcher_turn(self):
 
-
-        pitch_straight_speed = self.pitcher.pitch_speed
-        pitch_changeup_speed = int(self.pitcher.pitch_speed*0.9)
+        pitch_straight_speed = self.pitcher.velocity
+        pitch_changeup_speed = int(self.pitcher.velocity*0.9)
         
         
         for i in range(6):
@@ -32,3 +32,4 @@ class Game:
             pitch_result = random.choices(numbers,weights=weights,k=1)[0]
             print(f"speed: {pitch_result} km, pitch type: {pitch_type}, stamina: {self.pitcher.stamina}")
             self.pitcher.stamina = self.pitcher.stamina - 10
+
