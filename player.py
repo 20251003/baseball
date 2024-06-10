@@ -21,7 +21,7 @@ class Pitcher(PitchType):
     control = 0
     # 투구 폼 0 = over-hand, 1 = three-quater, 2 = side-arm, 3 = under-hand
     arm_slot = 0 
-    # 0~100
+    # 0~100 
 
 class Player(Pitcher):
     #키(정수형)
