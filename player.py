@@ -21,9 +21,26 @@ class Pitcher(PitchType):
     control = 0
     # 투구 폼 0 = over-hand, 1 = three-quater, 2 = side-arm, 3 = under-hand
     arm_slot = 0 
-    # 0~100 
+    # 투수 잠재력 
+    pitcher_potential = 0
 
-class Player(Pitcher):
+class Hiter():
+    #컨택
+    contact = 0
+    #파워
+    power = 0
+    #선구안
+    eye = 0
+    #삼진 회피
+    avoid_k = 0
+    #번트
+    bunt = 0
+    #도루
+    stealing = 0
+    #주루
+    baserunning = 0
+
+class Player(Pitcher,Hiter):
     #키(정수형)
     height = 0
     #몸무게(실수형)
@@ -32,6 +49,8 @@ class Player(Pitcher):
     bats = 'left'
     #투구 손
     throws = 'left'
+    #스피드
+    speed = 0
     #체력
     stamina = 100
     #정신력(0~100)
