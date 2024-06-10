@@ -1,5 +1,6 @@
 import pygame
 import sys
+import random
 
 # 초기화
 pygame.init()
@@ -7,6 +8,8 @@ pygame.init()
 # 색 정의
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
+RED = (255,0,0)
+YELLOW = (255,255,0)
 
 # 화면 크기 설정
 screen_size = (600, 600)
@@ -24,8 +27,27 @@ box_y1 = (screen_size[1] - strike_y) // 2
 box_x2 = (screen_size[0] - ball_x) // 2
 box_y2 = (screen_size[1] - ball_y) // 2
 
-# 각 칸의 크기 계산
-cell_size = box_x1 // 10
+choose_x = list(range(box_x2,box_x2+ball_x))
+choose_y = list(range(box_y2,box_y2+ball_y))
+
+class Zone:
+    def __init__(self):
+        self.pitcher_x = random.choice(choose_x)
+        self.pitcher_y = random.choice(choose_y)
+        self.pitcher_x2 = list(range(self.pitcher_x - 33, self.pitcher_x + 33))
+        self.pitcher_y2 = list(range(self.pitcher_y - 55, self.pitcher_y + 55))
+        self.pitcher_random_x = random.choice(self.pitcher_x2)
+        self.pitcher_random_y = random.choice(self.pitcher_y2)
+
+# Zone 객체 10개 생성
+zones = [Zone() for _ in range(100)]
+
+# 각 Zone 객체의 값을 출력
+for i, zone in enumerate(zones):
+    print(f"Zone {i+1}: x1={zone.pitcher_x}, y1={zone.pitcher_y} / x2={zone.pitcher_random_x}, y2={zone.pitcher_random_y}")
+
+pygame.font.init()
+font = pygame.font.Font(None, 36)
 
 # 게임 루프
 running = True
@@ -37,9 +59,19 @@ while running:
     # 화면을 흰색으로 채우기
     screen.fill(WHITE)
 
-    # 중앙에 위치한 100x100 박스 그리기
-    pygame.draw.rect(screen, BLACK, (box_x1, box_y1, strike_x, strike_y),1)
+    # 스트라이크 볼 박스
+    pygame.draw.rect(screen, RED, (box_x1, box_y1, strike_x, strike_y),1)
     pygame.draw.rect(screen, BLACK, (box_x2, box_y2, ball_x, ball_y),1)
+    #pygame.draw.rect(screen,BLACK,(box_x1,box_y1,33,55),1)
+    
+    
+    for i,zone in enumerate(zones):
+        pygame.draw.circle(screen, BLACK, (zone.pitcher_random_x, zone.pitcher_random_y), 15)
+        text_surface = font.render(str(i + 1), True, YELLOW)
+        text_rect = text_surface.get_rect(center=(zone.pitcher_random_x, zone.pitcher_random_y))
+        screen.blit(text_surface, text_rect)
+
+    #pygame.draw.circle(screen,BLACK,(box_x1,box_x2),2)
 
     # 화면 업데이트
     pygame.display.flip()
